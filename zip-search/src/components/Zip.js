@@ -12,9 +12,7 @@ class Zip extends Component {
 
   fetchCitiesFromZipcode = async () => {
     try {
-      let { data } = await axios.get(
-        "http://ctp-zip-api.herokuapp.com/" + this.props.targetZipcode
-      );
+      let { data } = await axios.get("http://ctp-zip-api.herokuapp.com/");
       console.log("DATA: " + data);
       this.setState({ citiesInZipcode: data.data });
     } catch (err) {
