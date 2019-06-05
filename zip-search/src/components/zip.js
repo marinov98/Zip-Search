@@ -1,21 +1,19 @@
-import React, { Componenet } from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 
-class Zip extends Componenet {
+class Zip extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            targetZipcode = props.zipcode,
-            citiesInZipcode =[]
+            targetZipcode: props.zipcode,
+            allCities: []
         }
     }
 
     async fetchCitiesFromZipcode() {
         try {
-            let { data } = await axios.get("http://ctp-zip-api.herokuapp.com/");
-            let targetZipcode = this.state.targetZipcode;
-            let result = data.filter();
-            this.setState({ citiesInZipcode: result });
+            let { data } = await axios.get(`http://ctp-zip-api.herokuapp.com/zip/${this.state.targetZipcode}`);
+            this.setState({ allCities: data });
         }
         catch (err) {
             console.log(err);
@@ -23,16 +21,19 @@ class Zip extends Componenet {
     }
 
     render() {
-        let displayCities = this.state.data.map((element) =>
-            <li>
-                {element}
-            </li>
-        );
-        return <div className="cityFromZipcode">
+        let displayCities = this.state.allCities.map(city => (
+            <div>
+                <div>{city.City}</div>
+                <div>State: {city.State}</div>
+                <div>Location: ({city.Lat}, {city.Long})</div>
+                <div>Population (estimated): {city.EstimatedPopulation}</div>
+                <div>Total Wages: {city.TotalWages}</div>
+            </div>
+        ));
+        return <div>
             <div>{displayCities}</div>
         </div>
     }
 }
 
 export default Zip;
-
