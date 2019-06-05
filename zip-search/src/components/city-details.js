@@ -7,7 +7,7 @@ export default class CityDetails extends Component {
       zipcode,
       zipCodeType,
       city,
-      state,
+      State,
       locationType,
       Lat,
       Long,
@@ -16,21 +16,22 @@ export default class CityDetails extends Component {
       Zaxis,
       worldRegion,
       country,
-      locationText,
+      LocationText,
       location,
       decomisioned,
       taxReturnsFiled,
-      estimatedPopulation,
-      totalWages,
+      EstimatedPopulation,
+      TotalWages,
       notes
-    } = this.props.data;
+    } = this.props.citiesInZipcode;
+    console.log(this.props.citiesInZipcode);
     return (
-      <li className="city">
-        <h1>{locationText}</h1>
-        <p>State: {state}</p>
-        <p>Location: {(Xaxis, Yaxis)}</p>
-        <p>Population(estimated): {estimatedPopulation}</p>
-        <p>Total Wages: {totalWages}</p>
+      <li className="city" key={LocationText}>
+        <h1>{LocationText}</h1>
+        <p>State: {State}</p>
+        <p>Location: {'(' + Xaxis + ',' + Yaxis + ')'}</p>
+        <p>Population(estimated): {EstimatedPopulation}</p>
+        <p>Total Wages: {TotalWages}</p>
       </li>
     );
   }
