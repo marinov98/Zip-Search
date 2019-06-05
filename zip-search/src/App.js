@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import Zip from './Zip.js';
 
 export default class App extends Component {
   constructor(props) {
@@ -14,6 +15,10 @@ export default class App extends Component {
     this.setState({ zipcode: e.target.value });
   };
 
+  searchForCities = e => {
+    <Zip targetZipcode={this.state.zipcode} />
+  }
+
   render() {
     return (
       <div className="App">
@@ -26,6 +31,7 @@ export default class App extends Component {
             type="text"
             name="zipcode"
           />
+          <button onclick="this.searchForCities"> Search </button>
         </div>
       </div>
     )
