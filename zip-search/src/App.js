@@ -1,16 +1,15 @@
-import React from "react";
-import "./App.css";
+import React, { Component } from 'react';
+import './App.css';
+import Zip from 'Zip.js';
 
-export default class App extends Component {
+class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <h1>Zip Code Search</h1>
-          Zipe Code:
-          <input type="text" name="zipcode" />
-        </div>
+      <div>
+        <Zip zipcode='11223' />
       </div>
-    );
+    )
   }
 }
+
+export default App;
