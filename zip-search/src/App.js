@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import "./App.css";
 
 export default class App extends Component {
@@ -7,7 +7,7 @@ export default class App extends Component {
       <div className="App">
         <div className="App-header">
           <h1>Zip Code Search</h1>
-          Zipe Code:
+          <span> Zipe Code: </span>
           <input type="text" name="zipcode" />
         </div>
       </div>
