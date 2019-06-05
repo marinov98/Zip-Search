@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import Zip from './Zip.js';
+import Zip from './components/zip.js';
 
 export default class App extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ export default class App extends Component {
   };
 
   searchForCities = e => {
-    <Zip targetZipcode={this.state.zipcode} />
+    return <Zip targetZipcode={this.state.zipcode} />;
   }
 
   render() {
@@ -24,18 +24,16 @@ export default class App extends Component {
       <div className="App">
         <div className="App-header">
           <h1>Zip Code Search</h1>
-          <span> Zipe Code: </span>
+          <span> Zip Code: </span>
           <input
             onChange={this.getZip}
             value={this.state.zipcode}
             type="text"
             name="zipcode"
           />
-          <button onclick="this.searchForCities"> Search </button>
+          <button onClick={this.searchForCities}> Search </button>
         </div>
       </div>
     )
   }
 }
-
-export default App;
