@@ -19,7 +19,7 @@ class Zip extends Component {
             console.log(err);
         }
     }
-
+  
     render() {
         let displayCities = this.state.allCities.map(city => (
             <div>
