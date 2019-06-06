@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./App.css";
+import "./components/city-details.css";
 import CityDetails from "./components/city-details";
 
 export default class App extends Component {
@@ -9,7 +10,7 @@ export default class App extends Component {
 
     this.state = {
       zipcode: "",
-      citiesInZipcode: [],
+      citiesInZipcode: []
     };
   }
 
@@ -19,7 +20,9 @@ export default class App extends Component {
 
   fetchForCities = async () => {
     try {
-      let { data } = await axios.get(`http://ctp-zip-api.herokuapp.com/zip/${this.state.zipcode}`);
+      let { data } = await axios.get(
+        `http://ctp-zip-api.herokuapp.com/zip/${this.state.zipcode}`
+      );
       this.setState({ citiesInZipcode: data });
     } catch (err) {
       console.log(err);
@@ -42,9 +45,7 @@ export default class App extends Component {
             name="zipcode"
           />
           <button onClick={this.fetchForCities}> Search </button>
-          <ul>
-            {displayCities}
-          </ul>
+          <ul>{displayCities}</ul>
         </div>
       </div>
     );
