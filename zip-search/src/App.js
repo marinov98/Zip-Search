@@ -24,12 +24,11 @@ export default class App extends Component {
     } catch (err) {
       console.log(err);
     }
-    console.log(this.state.citiesInZipcode);
   };
 
   render() {
-    let displayCities = this.state.citiesInZipcode.map((city, index) => (
-      <CityDetails citiesInZipcode={this.state.citiesInZipcode[index]} key={city.locationText} />
+    let displayCities = this.state.citiesInZipcode.map((city) => (
+      <CityDetails city={city} key={city.RecordNumber} />
     ));
     return (
       <div className="App">
