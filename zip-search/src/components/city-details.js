@@ -6,8 +6,8 @@ export default class CityDetails extends Component {
     let {
       RecordNumber,
       State,
-      Xaxis,
-      Yaxis,
+      Lat,
+      Long,
       LocationText,
       EstimatedPopulation,
       TotalWages
