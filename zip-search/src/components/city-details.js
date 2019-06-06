@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./city-details.css";
 
 export default class CityDetails extends Component {
   render() {
@@ -29,7 +30,7 @@ export default class CityDetails extends Component {
       <li className="city" key={LocationText}>
         <h1>{LocationText}</h1>
         <p>State: {State}</p>
-        <p>Location: {'(' + Xaxis + ',' + Yaxis + ')'}</p>
+        <p>Location: {"(" + Xaxis + "," + Yaxis + ")"}</p>
         <p>Population(estimated): {EstimatedPopulation}</p>
         <p>Total Wages: {TotalWages}</p>
       </li>
